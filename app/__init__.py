@@ -6,13 +6,11 @@ from flask.ext.script import Manager
 app = Flask(__name__)
 app.config.from_object('app.settings.Production')
 
-<<<<<<< HEAD
-=======
+
 db = SQLAlchemy(app)
 manager = Manager(app)
 migrate = Migrate(app, db)
 manager.add_command('db', MigrateCommand)
 
 
->>>>>>> 24deae762b8e9686c6f7dd1dbaf6b1b741d50ffe
 from app import views
