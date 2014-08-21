@@ -7,5 +7,5 @@ class Production(Config):
 	debug = True
 	CSRF_ENABLED = False
 	ADMIN = "chuizone.com@gmail.com"
-	SQLALCHEMY_DATABASE_URI = "mysql+gaerdbms:///flaskr?instance=chuizonebeta:chuizonebeta"
+	SQLALCHEMY_DATABASE_URI = "mysql+gaerdbms:///chuizone?instance=chuizonebeta:chuizonebeta"
 	migration_directory = "migrations"
