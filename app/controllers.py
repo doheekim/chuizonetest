@@ -54,3 +54,7 @@ def main():
 # 			return redirect(url_for('academy'))
 
 # 		return render_template('academy_create.html', .........., ..........)
+
+@app.route('/map')
+def mapnlist():
+	return render_template('mapnlist.html')	
