@@ -11,7 +11,6 @@ def academy():
 
     return render_template('main.html')
 
-
 @app.route('/mapnlist')
 def main():
 
