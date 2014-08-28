@@ -12,7 +12,7 @@ window.onload = function() {
 	marker.setMap(map);
 
 	var infowindow = new daum.maps.InfoWindow({
-		content: '{{gu_name}} + 취미학원 표시'
+		content: ''{{gu_name}}' + 취미학원 표시'
 	});
 	infowindow.open(map, marker);
 };
