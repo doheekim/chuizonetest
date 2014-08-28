@@ -9,6 +9,7 @@ class Academy(db.Model):
 	teacher_introduce = db.Column(db.Text())
 	curriculum_introduce = db.Column(db.Text())
 	academy_address = db.Column(db.String(255))
+	address_id = db.Column(db.String(255))
 	welcome_line = db.Column(db.String(255))
 	phone_number = db.Column(db.String(255))
 	class_time = db.Column(db.Text())
