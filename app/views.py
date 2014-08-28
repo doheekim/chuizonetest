@@ -13,39 +13,24 @@ def academy():
 
     return render_template('main.html')
 
-@app.route('/mapnlist', methods=['GET', 'POST'])
-def main():
-	s1 = session['s1']
-	s2 = session['s2']
+@app.route('/search', methods=['GET', 'POST'])
+def search():
 	if request.method == 'GET':
+		s1 = request.args.get('searcher_1')
+		s2 = request.args.get('searcher_2')
 		if s1 == '강남구':
 			data = {'success':True, 'position':'37.49796298370522, 127.02761094942744', 'local': '강남구'}
-			return jsonify(data)	
+			return render_template('mapnlist.html', location = jsonify(data))
 		elif s1 == '강동구':
 			data = {'success':True, 'position':'37.53589682068908, 127.13235618124992', 'local': '강동구'}
-			return jsonify(data)	
+			return render_template('mapnlist.html', location = jsonify(data))	
 		elif s1 == '종로구':
 			data = {'success':True, 'position':'37.57042061397492, 126.99213459583619', 'local': '종로구'}
-			return jsonify(data)	
-		return render_template('mapnlist.html', session1_check = s1, session2_check = s2)
-
+			return render_template('mapnlist.html', location = jsonify(data))
 
 @app.route('/academy')
 def mapnlist():
 	return render_template('academy.html')
-	
-
-@app.route('/search', methods=['GET', 'POST'])
-def search():
-	s1 = request.args.get('searcher_1')
-	s2 = request.args.get('searcher_2')
-	if request.method == 'GET':
-		session['s1'] = s1
-		session['s2'] = s2
-		return redirect('mapnlist')
-	else:
-		return render_template('main.html')
-
 
 @app.route('/create', methods=['GET', 'POST'])
 def create():
