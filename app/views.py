@@ -15,7 +15,15 @@ def academy():
 
 @app.route('/mapnlist')
 def main():
-
+	s1 = request.args.get('searcher_1')
+	position = ()
+	if request.method == 'GET':
+		if s1 == '강남구':
+			position = 'position101'
+		elif s1 == '강동구':
+			position = 'position102'
+		elif s1 == '종로구':
+			position = 'position123'	
     return render_template('mapnlist.html')
 
 
