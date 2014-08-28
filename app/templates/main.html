@@ -26,9 +26,8 @@
 
 	<!-- searcher start -->
 	<form role="form" method="GET" action="{{url_for('search')}}">
-		<select class="form-control" name="searcher_1">
-			<option>지역을 선택하세요</option>
-			<option>전체</option>
+		<select class="form-control" name="searcher_1" id="searcher_1" placeholder="지역을 선택하세요">
+			<option value="all">전체</option>
 			<option value="kng">강남구</option>
 			<option value="kdg">강동구</option>
 			<option value="kbg">강북구</option>
@@ -55,6 +54,16 @@
 			<option value="jg">중구</option>
 			<option value="jlg">중랑구</option>
 		</select>
+
+		<select class="form-control" name="searcher_2" id="searcher_2" placeholder="취미를 선택하세요">
+			<option value="all">전체</option>
+			<option value="craft">공예</option>
+			<option value="art">미술</option>
+			<option value="sport">스포츠</option>
+			<option value="cooking">요리</option>
+			<option value="music">음악</option>
+			<option value="flower">플라워</option>
+		</select>
 		<input type="submit" class="btn btn-default" id="button">
 			취미 찾기
 		</input>
@@ -62,13 +71,3 @@
 	<!-- searcher end -->
 </body>
 </html>
-
-<!-- 		<select class="form-control" id="searcher_2">
-			<option>취미를 선택하세요</option>
-			<option>전체</option>
-			<option>공예</option>
-			<option>미술</option>
-			<option>스포츠</option>
-			<option>요리</option>
-			<option>음악</option>
-			<option>플라워</option> -->
