@@ -1,4 +1,4 @@
-from flask import render_template, request, redirect, url_for, Flask, session
+from flask import render_template, request, redirect, url_for, Flask, session, jsonify
 from app import app, db
 # from app.forms import AcademyForm
 # from app.models import Academy
@@ -15,16 +15,19 @@ def academy():
 
 @app.route('/mapnlist')
 def main():
-	s1 = request.args.get('searcher_1')
-	position = ()
+	s1 = session['s1']
+	s2 = session['s2']
 	if request.method == 'GET':
 		if s1 == '강남구':
-			position = 'position101'
+			data = {'success':True, 'position':'position101', 'local': '강남구'}
+			return jsonify(data)	
 		elif s1 == '강동구':
-			position = 'position102'
+			data = {'success':True, 'position':'position102', 'local': '강동구'}
+			return jsonify(data)	
 		elif s1 == '종로구':
-			position = 'position123'	
-    return render_template('mapnlist.html')
+			data = {'success':True, 'position':'position125', 'local': '종로구'}
+			return jsonify(data)	
+		return render_template('mapnlist.html')
 
 
 @app.route('/academy')
