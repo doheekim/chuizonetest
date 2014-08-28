@@ -15,10 +15,6 @@
 <body>
 	<!-- navigator start -->
 	<div class="nav">
-		<ul>
-			<li>회원가입</li>
-			<li>로그인</li>
-		</ul>
 	</div>
 	<!-- navigator end -->
 
@@ -31,19 +27,46 @@
 	<!-- searcher start -->
 	<select class="form-control" id="searcher_1">
 		<option>지역을 선택하세요</option>
-		<option>중구</option>
-		<option>종로구</option>
-		<option>성동구</option>
+		<option>전체</option>
+		<option>강남구</option>
+		<option>강동구</option>
+		<option>강북구</option>
+		<option>강서구</option>
+		<option>관악구</option>
+		<option>광진구</option>
+		<option>구로구</option>
+		<option>금천구</option>
+		<option>노원구</option>
+		<option>도봉구</option>
+		<option>동대문구</option>
+		<option>동작구</option>
+		<option>마포구</option>
 		<option>서대문구</option>
+		<option>서초구</option>
+		<option>성동구</option>
+		<option>성북구</option>
+		<option>송파구</option>
+		<option>양천구</option>
+		<option>영등포구</option>
+		<option>용산구</option>
+		<option>은평구</option>
+		<option>종로구</option>
+		<option>중구</option>
+		<option>중랑구</option>
 	</select>
 	<select class="form-control" id="searcher_2">
 		<option>취미를 선택하세요</option>
+		<option>전체</option>
+		<option>공예</option>
 		<option>미술</option>
-		<option>피아노</option>
-		<option>요리</option>
 		<option>스포츠</option>
+		<option>요리</option>
+		<option>음악</option>
+		<option>플라워</option>
 	</select>
-	<button type="button" class="btn btn-default" id="button">취미 찾기</button>
+	<button type="button" class="btn btn-default" id="button">
+		<a href="{{ url_for('map') }}">취미 찾기</a>
+	</button>
 	<!-- searcher end -->
 </body>
 </html>
