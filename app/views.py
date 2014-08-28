@@ -19,20 +19,21 @@ def academy():
 def search():
 	if request.method == 'GET':
 		s1 = request.args.get('searcher_1')
-		s2 = request.args.get('searcher_2')
+		s2 = request.args.get('as')
 		data = 'fail'
+		print s1, s2
 		if s1 == 'kng':
 			position = '37.49796298370522, 127.02761094942744'
-			local =  u'강남구'
-			return render_template('mapnlist.html', location = '37.49796298370522, 127.02761094942744')
-		elif s1 == u'강동구':
+			guname =  u'강남구'
+			return render_template('mapnlist.html', position = positioin, guname = guname)
+		elif s1 == u'kdg':
 			data = {'success':True, 'position':'37.53589682068908, 127.13235618124992', 'local': u'강동구'}
-			return render_template('mapnlist.html', location = jsonify(data))	
-		elif s1 == u'종로구':
+			return render_template('mapnlist.html', position = positioin, guname = guname)
+		elif s1 == u'jrg':
 			data = {'success':True, 'position':'37.57042061397492, 126.99213459583619', 'local': u'종로구'}
-			return render_template('mapnlist.html', location = jsonify(data))
-		return render_template('mapnlist.html', location = data)
-	return render_template('mapnlist.html', location = data)
+			return render_template('mapnlist.html', position = positioin, guname = guname)
+		return render_template('mapnlist.html', location = s1)
+	return render_template('mapnlist.html', location = s1)
 
 @app.route('/academy')
 def mapnlist():
