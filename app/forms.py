@@ -64,3 +64,13 @@ class AcademyForm(Form):
         [validators.data_required(u'홈페이지를 입력하시기 바랍니다.')],
         description={'placeholder': u'홈페이지를 입력해주세요.'}
         )
+    location = StringField(
+        u'지역',
+        [validators.data_required(u'지역을 입력하시기 바랍니다.')],
+        description={'placeholder': u'지역을 입력해주세요.'}
+        )
+    category = StringField(
+        u'카테고리',
+        [validators.data_required(u'카테고리를 입력하시기 바랍니다.')],
+        description={'placeholder': u'카테고리를 입력해주세요.'}
+        )
