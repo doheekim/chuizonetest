@@ -29,6 +29,16 @@ def academy_create():
 	return render_template('academy_create.html')
 
 
+# @app.route('/map', methods=['GET', 'POST'])
+# def map():
+# 	s1 = searcher_1.form.get
+# 	s2 = searcher_2.form.get
+# 	if request.method == 'POST':
+# 		contents = db.session.query(Academy).filter(Academy.legion == s1).all() and db.session.query(Academy).filter(Academy.Category ==s2).all()
+# 		return render_template('mapnlist.html', contents=contents)
+# 	return render_template('main.html')
+
+
 # @app.route('/academy/create/', methods=['GET', 'POST'])
 # def article_create():
 # 	form = AcademyForm()
