@@ -1,3 +1,5 @@
+#-*-coding:utf-8-*-
+
 from flask import render_template, request, redirect, url_for, Flask, session, jsonify
 from app import app, db
 from app.forms import AcademyForm
@@ -18,15 +20,19 @@ def search():
 	if request.method == 'GET':
 		s1 = request.args.get('searcher_1')
 		s2 = request.args.get('searcher_2')
-		if s1 == '강남구':
-			data = {'success':True, 'position':'37.49796298370522, 127.02761094942744', 'local': '강남구'}
-			return render_template('mapnlist.html', location = jsonify(data))
-		elif s1 == '강동구':
-			data = {'success':True, 'position':'37.53589682068908, 127.13235618124992', 'local': '강동구'}
+		data = 'fail'
+		if s1 == 'kng':
+			position = '37.49796298370522, 127.02761094942744'
+			local =  u'강남구'
+			return render_template('mapnlist.html', location = '37.49796298370522, 127.02761094942744')
+		elif s1 == u'강동구':
+			data = {'success':True, 'position':'37.53589682068908, 127.13235618124992', 'local': u'강동구'}
 			return render_template('mapnlist.html', location = jsonify(data))	
-		elif s1 == '종로구':
-			data = {'success':True, 'position':'37.57042061397492, 126.99213459583619', 'local': '종로구'}
+		elif s1 == u'종로구':
+			data = {'success':True, 'position':'37.57042061397492, 126.99213459583619', 'local': u'종로구'}
 			return render_template('mapnlist.html', location = jsonify(data))
+		return render_template('mapnlist.html', location = data)
+	return render_template('mapnlist.html', location = data)
 
 @app.route('/academy')
 def mapnlist():
