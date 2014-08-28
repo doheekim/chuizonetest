@@ -4,18 +4,18 @@ window.onload = function() {
 	var position123 = new daum.maps.LatLng(37.57042061397492, 126.99213459583619);	
 
 	var map = new daum.maps.Map(document.getElementById('map'), {
-		center: position102,
+		center: position101,
 		level: 4,
 		mapTypeId: daum.maps.MapTypeId.ROADMAP
 	});
 
 	var marker = new daum.maps.Marker({
-		position: position102
+		position: position101
 	});
 	marker.setMap(map);
 
 	var infowindow = new daum.maps.InfoWindow({
-		content: '종로구 취미학원 표시'
+		content: '강남구 취미학원 표시'
 	});
 	infowindow.open(map, marker);
 };
