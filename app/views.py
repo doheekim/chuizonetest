@@ -45,7 +45,7 @@ def create():
 	if request.method == 'GET':
 		return render_template('create.html', form=form)
 	elif request.method == 'POST':
-		if request.form.get('password') == 'chuizone0000':
+		if request.form.get('password') == u'0000':
 			if form.validate_on_submit():
 				academy = Academy(
 					academy_name=form.academy_name.data,
