@@ -11,7 +11,7 @@ sys.setdefaultencoding('UTF8')
 
 @app.route('/')
 @app.route('/main')
-def academy():
+def main():
 
     return render_template('main.html')
 
@@ -65,6 +65,6 @@ def create():
 
 			db.session.add(academy)
 			db.session.commit()
-			return redirect(url_for('academy'))
+			return redirect(url_for('main'))
 		return render_template('create.html', form=form)
 	return render_template('create.html', form=form)
