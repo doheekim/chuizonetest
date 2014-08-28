@@ -1,5 +1,5 @@
 $(document).ready(function(){
-	// location = $('asdf').eval();
+	position = $('asdf').eval();
 	var position = new daum.maps.LatLng()
 	var map = new daum.maps.Map(document.getElementById('map'), {
 		center: position,
