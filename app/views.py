@@ -27,7 +27,7 @@ def main():
 		elif s1 == '종로구':
 			data = {'success':True, 'position':'37.57042061397492, 126.99213459583619', 'local': '종로구'}
 			return jsonify(data)	
-		return render_template('mapnlist.html')
+		return render_template('mapnlist.html', session1_check = s1, session2_check = s2)
 
 
 @app.route('/academy')
@@ -42,7 +42,7 @@ def search():
 	if request.method == 'GET':
 		session['s1'] = s1
 		session['s2'] = s2
-		return redirect('mapnlist', session1_check = session['s1'], session2_check = session['s2'])
+		return redirect('mapnlist')
 	else:
 		return render_template('main.html')
 
