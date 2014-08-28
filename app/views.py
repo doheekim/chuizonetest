@@ -59,11 +59,12 @@ def create():
 				class_fee=form.class_fee.data,
 				homepage=form.homepage.data,
 				location=form.location.data,
-				category=form.category.data
+				category=form.category.data,
+				academy_latlng=form.academy_latlng.data
 				)
 
 			db.session.add(academy)
 			db.session.commit()
 			return redirect(url_for('mapnlist'))
-
+		return render_template('create.html', form=form)
 	return render_template('create.html', form=form)
