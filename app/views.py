@@ -11,7 +11,7 @@ sys.setdefaultencoding('UTF8')
 
 @app.route('/')
 @app.route('/main')
-def academy():
+def main():
 
     return render_template('main.html')
 
@@ -36,7 +36,7 @@ def search():
 	return render_template('mapnlist.html')
 
 @app.route('/academy')
-def mapnlist():
+def academy():
 	return render_template('academy.html')
 
 @app.route('/create', methods=['GET', 'POST'])
@@ -67,9 +67,9 @@ def create():
 				db.session.add(academy)
 				db.session.commit()
 				return redirect(url_for('main'))
-			return redirect(url_for('main'))
-			
+			else:
+				return redirect(url_for('academy'))
 		else:
-			return redirect(url_for('main'))
+			return redirect(url_for('academy'))
 		return render_template('create.html', form=form)
 	return render_template('create.html', form=form)
