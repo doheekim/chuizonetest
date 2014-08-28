@@ -22,12 +22,7 @@ def main():
 @app.route('/academy')
 def mapnlist():
 	return render_template('academy.html')
-
-
-@app.route('/academy/create')
-def academy_create():
-	return render_template('academy_create.html')
-
+	
 
 # @app.route('/map', methods=['GET', 'POST'])
 # def map():
