@@ -4,7 +4,7 @@ $(document).ready(function(){
 		type: 'GET',
 		dataType: 'JSON',
 		success: function(data){
-			if(data.position){
+			if(data.success){
 				var position = new daum.maps.LatLng(data.position)
 				var map = new daum.maps.Map(document.getElementById('map'), {
 					center: position,
