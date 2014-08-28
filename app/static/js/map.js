@@ -1,6 +1,5 @@
 $(document).ready(function(){
-	var element = document.getElementById("new-element-1");
-	var position = new daum.maps.LatLng(position)
+	var position = new daum.maps.LatLng('{{gu_latlng}}')
 	var map = new daum.maps.Map(document.getElementById('map'), {
 		center: position,
 		level: 4,
@@ -13,7 +12,7 @@ $(document).ready(function(){
 	marker.setMap(map);
 
 	var infowindow = new daum.maps.InfoWindow({
-		content: guname + '취미학원 표시'
+		content: '{{gu_name}} + 취미학원 표시'
 	});
 	infowindow.open(map, marker);
 });

@@ -21,17 +21,17 @@ def search():
 		s1 = request.args.get('searcher_1')
 		s2 = request.args.get('as')
 		if s1 == 'kng':
-			position = '37.49796298370522, 127.02761094942744'
-			guname =  u'강남구'
-			return render_template('mapnlist.html', position = position, guname = guname)
+			gu_latlng = '37.49796298370522, 127.02761094942744'
+			gu_name =  u'강남구'
+			return render_template('mapnlist.html', gu_latlng = gu_latlng, gu_name = gu_name)
 		elif s1 == 'kdg':
-			position = '37.53589682068908, 127.13235618124992'
-			guname =  u'강동구'
-			return render_template('mapnlist.html', position = position, guname = guname)
+			gu_latlng = '37.53589682068908, 127.13235618124992'
+			gu_name =  u'강동구'
+			return render_template('mapnlist.html', gu_latlng = gu_latlng, gu_name = gu_name)
 		elif s1 == 'jrg':
-			position = '37.57042061397492, 126.99213459583619'
-			guname =  u'종로구'
-			return render_template('mapnlist.html', position = position, guname = guname)
+			gu_latlng = '37.57042061397492, 126.99213459583619'
+			gu_name =  u'종로구'
+			return render_template('mapnlist.html', gu_latlng = gu_latlng, gu_name = gu_name)
 		return render_template('mapnlist.html')
 	return render_template('mapnlist.html')
 
