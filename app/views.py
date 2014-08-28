@@ -59,7 +59,8 @@ def create():
 				class_fee=form.class_fee.data,
 				homepage=form.homepage.data,
 				location=form.location.data,
-				category=form.category.data
+				category=form.category.data,
+				academy_latlng=form.academy_latlng.data
 				)
 
 			db.session.add(academy)

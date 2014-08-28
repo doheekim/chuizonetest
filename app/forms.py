@@ -74,3 +74,8 @@ class AcademyForm(Form):
         [validators.data_required(u'카테고리를 입력하시기 바랍니다.')],
         description={'placeholder': u'카테고리를 입력해주세요.'}
         )
+    academy_latlng = StringField(
+        u'위도, 경도',
+        [validators.data_required(u'위도와 경도를 입력하시기 바랍니다.')],
+        description={'placeholder': u'위도와 경도를 입력해주세요.'}
+        )
