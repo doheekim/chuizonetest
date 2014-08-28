@@ -44,55 +44,60 @@
 					<div class="col-md-3">
 						<p>지역</p>
 					</div>
-					<div class="col-md-9">
-						<select class="form-control" id="">
-							<option>지역을 선택하세요</option>
-							<option>전체</option>
-							<option>강남구</option>
-							<option>강동구</option>
-							<option>강북구</option>
-							<option>강서구</option>
-							<option>관악구</option>
-							<option>광진구</option>
-							<option>구로구</option>
-							<option>금천구</option>
-							<option>노원구</option>
-							<option>도봉구</option>
-							<option>동대문구</option>
-							<option>동작구</option>
-							<option>마포구</option>
-							<option>서대문구</option>
-							<option>서초구</option>
-							<option>성동구</option>
-							<option>성북구</option>
-							<option>송파구</option>
-							<option>양천구</option>
-							<option>영등포구</option>
-							<option>용산구</option>
-							<option>은평구</option>
-							<option>종로구</option>
-							<option>중구</option>
-							<option>중랑구</option>
-						</select>
+					<form role="form" method="GET" action="{{url_for('mapnlist')}}">
+						<div class="col-md-9">				
+							<select class="form-control" name="searcher_1" id="searcher_1">
+								<option value="all">지역을 선택하세요</option>
+								<option value="all">전체</option>
+								<option value="kng">강남구</option>
+								<option value="kdg">강동구</option>
+								<option value="kbg">강북구</option>
+								<option value="ksg">강서구</option>
+								<option value="kag">관악구</option>
+								<option value="kjg">광진구</option>
+								<option value="krg">구로구</option>
+								<option value="kcg">금천구</option>
+								<option value="nwg">노원구</option>
+								<option value="dbg">도봉구</option>
+								<option value="ddmg">동대문구</option>
+								<option value="djg">동작구</option>
+								<option value="mpg">마포구</option>
+								<option value="sdmg">서대문구</option>
+								<option value="scg">서초구</option>
+								<option value="sdg">성동구</option>
+								<option value="sbg">성북구</option>
+								<option value="spg">송파구</option>
+								<option value="ycg">양천구</option>
+								<option value="ydpg">영등포구</option>
+								<option value="ysg">용산구</option>
+								<option value="epg">은평구</option>
+								<option value="jrg">종로구</option>
+								<option value="jg">중구</option>
+								<option value="jlg">중랑구</option>
+							</select>
+						</div>
 					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-3">
-						<p>취미</p>
+					<div class="row">
+						<div class="col-md-3">
+							<p>취미</p>
+						</div>
+						<div class="col-md-9">
+							<select class="form-control" name="searcher_2" id="searcher_2">
+								<option value="all">취미를 선택하세요</option>
+								<option value="all">전체</option>
+								<option value="craft">공예</option>
+								<option value="art">미술</option>
+								<option value="sport">스포츠</option>
+								<option value="cooking">요리</option>
+								<option value="music">음악</option>
+								<option value="flower">플라워</option>
+							</select>
+						</div>
 					</div>
-					<div class="col-md-9">
-						<select class="form-control" id="">
-							<option>취미를 선택하세요</option>
-							<option>전체</option>
-							<option>공예</option>
-							<option>미술</option>
-							<option>스포츠</option>
-							<option>요리</option>
-							<option>음악</option>
-							<option>플라워</option>
-						</select>
-					</div>
-				</div>				
+					<input type="submit" class="btn btn-default" id="button">
+					취미 찾기
+					</input>
+				</form>				
 			</div>
 			<!-- searcher end -->
 
