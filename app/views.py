@@ -28,7 +28,7 @@ def main():
 			data = {'success':True, 'position':'37.57042061397492, 126.99213459583619', 'local': '종로구'}
 			return jsonify(data)	
 		return render_template('mapnlist.html')
-		
+
 
 @app.route('/academy')
 def mapnlist():
@@ -65,7 +65,9 @@ def create():
 				phone_number=form.phone_number.data,
 				class_time=form.class_time.data,
 				class_fee=form.class_fee.data,
-				homepage=form.homepage.data
+				homepage=form.homepage.data,
+				location=form.location.data,
+				category=form.category.data
 				)
 
 			db.session.add(academy)
