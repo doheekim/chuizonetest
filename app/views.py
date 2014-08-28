@@ -24,14 +24,15 @@ def mapnlist():
 	return render_template('academy.html')
 	
 
-# @app.route('/map', methods=['GET', 'POST'])
-# def map():
-# 	s1 = searcher_1.form.get
-# 	s2 = searcher_2.form.get
-# 	if request.method == 'POST':
-# 		contents = db.session.query(Academy).filter(Academy.legion == s1).all() and db.session.query(Academy).filter(Academy.Category ==s2).all()
-# 		return render_template('mapnlist.html', contents=contents)
-# 	return render_template('main.html')
+@app.route('/search', methods=['GET', 'POST'])
+def search():
+	s1 = request.args.get('searcher_1')
+	if request.method == 'GET':
+		if s1 == '강남구':
+			return render_template('mapnlist.html')
+		else:
+			return render_template('academy.html')
+	return render_template('index.html')
 
 
 # @app.route('/academy/create/', methods=['GET', 'POST'])
