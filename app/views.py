@@ -17,6 +17,10 @@ def main():
 
 @app.route('/mapnlist', methods=['GET', 'POST'])
 def mapnlist():
+	return render_template('mapnlist.html')
+
+@app.route('/mapdata', methods=['GET', 'POST'])
+def mapdata():
 	if request.method == 'GET':
 		s1 = request.args.get('searcher_1')
 		s2 = request.args.get('searcher_2')
@@ -30,8 +34,8 @@ def mapnlist():
 		elif s1 == 'jrg':
 			data = {'success':True, 'gu_latlng': '37.57042061397492, 126.99213459583619', 'gu_name': u'종로구'}			
 			return jsonify(data)
-		return render_template('mapnlist.html')
-	return render_template('mapnlist.html')
+		return jsonify(data)
+	return jsonify(data)
 
 @app.route('/academy')
 def academy():
