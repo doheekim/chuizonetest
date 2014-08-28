@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Academy Page</title>
+	<title>List Page</title>
 	<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
 	<script src="http://code.jquery.com/ui/1.11.0/jquery-ui.js"></script>
 	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
@@ -10,7 +10,7 @@
 	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 	<style type="text/css"></style>
 	<meta name="viewport" content="initial-scale=1.0,user-scalable=no">
- 	<script type="text/javascript" src="static/js/map.js"></script>
+	<script type="text/javascript" src="static/js/map.js"></script>
 	<link rel="stylesheet" type="text/css" href="static/css/mapnlist.css"/>	
 	<script type="text/javascript" src="http://apis.daum.net/maps/maps3.js?apikey=2044740d5825efd04511818f6489e32cbd0b5e71"></script>
 </head>
@@ -39,37 +39,54 @@
 			<div class="searcher">
 				<div class="row">
 					<div class="col-md-3">
-						<p>카테고리</p>
+						<p>지역</p>
 					</div>
 					<div class="col-md-9">
-						<label class="checkbox-inline">
-							<input type="checkbox" id="inlineCheckbox1" value="option1"> 공예
-						</label>
-						<label class="checkbox-inline">
-							<input type="checkbox" id="inlineCheckbox2" value="option2"> 요리
-						</label>
-						<label class="checkbox-inline">
-							<input type="checkbox" id="inlineCheckbox3" value="option3"> 음악
-						</label>
-						<label class="checkbox-inline">
-							<input type="checkbox" id="inlineCheckbox3" value="option3"> 미술
-						</label>
-						<label class="checkbox-inline">
-							<input type="checkbox" id="inlineCheckbox3" value="option3"> 기타
-						</label>
+						<select class="form-control" id="">
+							<option>지역을 선택하세요</option>
+							<option>전체</option>
+							<option>강남구</option>
+							<option>강동구</option>
+							<option>강북구</option>
+							<option>강서구</option>
+							<option>관악구</option>
+							<option>광진구</option>
+							<option>구로구</option>
+							<option>금천구</option>
+							<option>노원구</option>
+							<option>도봉구</option>
+							<option>동대문구</option>
+							<option>동작구</option>
+							<option>마포구</option>
+							<option>서대문구</option>
+							<option>서초구</option>
+							<option>성동구</option>
+							<option>성북구</option>
+							<option>송파구</option>
+							<option>양천구</option>
+							<option>영등포구</option>
+							<option>용산구</option>
+							<option>은평구</option>
+							<option>종로구</option>
+							<option>중구</option>
+							<option>중랑구</option>
+						</select>
 					</div>
 				</div>
 				<div class="row">
 					<div class="col-md-3">
-						<p>지역</p>
+						<p>취미</p>
 					</div>
 					<div class="col-md-9">
-						<select class="form-control">
-							<option>강남구</option>
-							<option>종로구</option>
-							<option>서대문구</option>
-							<option>성동구</option>
-							<option>중구</option>
+						<select class="form-control" id="">
+							<option>취미를 선택하세요</option>
+							<option>전체</option>
+							<option>공예</option>
+							<option>미술</option>
+							<option>스포츠</option>
+							<option>요리</option>
+							<option>음악</option>
+							<option>플라워</option>
 						</select>
 					</div>
 				</div>				
