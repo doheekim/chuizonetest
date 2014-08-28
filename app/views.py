@@ -27,12 +27,13 @@ def mapnlist():
 @app.route('/search', methods=['GET', 'POST'])
 def search():
 	s1 = request.args.get('searcher_1')
+	s2 = request.args.get('searcher_2')
 	if request.method == 'GET':
-		if s1 == '강남구':
-			return render_template('mapnlist.html')
-		else:
-			return render_template('academy.html')
-	return render_template('index.html')
+		session['s1'] = s1
+		session['s2'] = s2
+		return redirect('mapnlist')
+	else:
+		return render_template('main.html')
 
 
 # @app.route('/academy/create/', methods=['GET', 'POST'])
