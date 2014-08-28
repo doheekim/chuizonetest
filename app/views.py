@@ -73,5 +73,5 @@ def create():
 			db.session.add(academy)
 			db.session.commit()
 			return redirect(url_for('mapnlist'))
-
+		return render_template('create.html', form=form)
 	return render_template('create.html', form=form)
