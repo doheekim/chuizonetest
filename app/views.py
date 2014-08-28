@@ -15,8 +15,8 @@ def main():
 
     return render_template('main.html')
 
-@app.route('/search', methods=['GET', 'POST'])
-def search():
+@app.route('/mapnlist', methods=['GET', 'POST'])
+def mapnlist():
 	if request.method == 'GET':
 		s1 = request.args.get('searcher_1')
 		s2 = request.args.get('as')
@@ -71,5 +71,6 @@ def create():
 				return redirect(url_for('academy'))
 		else:
 			return redirect(url_for('academy'))
+
 		return render_template('create.html', form=form)
 	return render_template('create.html', form=form)
