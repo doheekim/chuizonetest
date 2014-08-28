@@ -19,19 +19,17 @@ def main():
 def mapnlist():
 	if request.method == 'GET':
 		s1 = request.args.get('searcher_1')
-		s2 = request.args.get('as')
+		s2 = request.args.get('searcher_2')
+		data = {'success':True, 'gu_latlng': 'fail', 'gu_name': u'실패'}
 		if s1 == 'kng':
-			gu_latlng = '37.49796298370522, 127.02761094942744'
-			gu_name =  u'강남구'
-			return render_template('mapnlist.html', gu_latlng = gu_latlng, gu_name = gu_name)
+			data = {'success':True, 'gu_latlng': '37.49796298370522, 127.02761094942744', 'gu_name': u'강남구'}
+			return jsonify(data)
 		elif s1 == 'kdg':
-			gu_latlng = '37.53589682068908, 127.13235618124992'
-			gu_name =  u'강동구'
-			return render_template('mapnlist.html', gu_latlng = gu_latlng, gu_name = gu_name)
+			data = {'success':True, 'gu_latlng': '37.53589682068908, 127.13235618124992', 'gu_name': u'강동구'}
+			return jsonify(data)
 		elif s1 == 'jrg':
-			gu_latlng = '37.57042061397492, 126.99213459583619'
-			gu_name =  u'종로구'
-			return render_template('mapnlist.html', gu_latlng = gu_latlng, gu_name = gu_name)
+			data = {'success':True, 'gu_latlng': '37.57042061397492, 126.99213459583619', 'gu_name': u'종로구'}			
+			return jsonify(data)
 		return render_template('mapnlist.html')
 	return render_template('mapnlist.html')
 
