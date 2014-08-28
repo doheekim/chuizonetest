@@ -1,5 +1,5 @@
-$(document).ready(function(){
-	var position = new daum.maps.LatLng('{{gu_latlng}}')
+window.onload = function() {
+	var position = new daum.maps.LatLng('{{gu_latlng}}');
 	var map = new daum.maps.Map(document.getElementById('map'), {
 		center: position,
 		level: 4,

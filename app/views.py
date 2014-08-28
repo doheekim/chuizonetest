@@ -15,8 +15,8 @@ def academy():
 
     return render_template('main.html')
 
-@app.route('/search', methods=['GET', 'POST'])
-def search():
+@app.route('/mapnlist', methods=['GET', 'POST'])
+def mapnlist():
 	if request.method == 'GET':
 		s1 = request.args.get('searcher_1')
 		s2 = request.args.get('as')
@@ -36,7 +36,7 @@ def search():
 	return render_template('mapnlist.html')
 
 @app.route('/academy')
-def mapnlist():
+def academy():
 	return render_template('academy.html')
 
 @app.route('/create', methods=['GET', 'POST'])
