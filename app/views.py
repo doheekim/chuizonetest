@@ -13,7 +13,7 @@ def academy():
 
     return render_template('main.html')
 
-@app.route('/mapnlist')
+@app.route('/mapnlist', methods=['GET', 'POST'])
 def main():
 	s1 = session['s1']
 	s2 = session['s2']
