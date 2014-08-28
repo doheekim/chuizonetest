@@ -51,7 +51,7 @@ def search():
 def create():
 	form=AcademyForm()
 	if request.method == 'GET':
-		return render_template('create.html', form=form)
+		return render_template('main.html')
 	elif request.method == 'POST':
 		if form.validate_on_submit():
 			academy = Academy(
