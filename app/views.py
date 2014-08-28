@@ -20,20 +20,20 @@ def search():
 	if request.method == 'GET':
 		s1 = request.args.get('searcher_1')
 		s2 = request.args.get('as')
-		data = 'fail'
-		print s1, s2
 		if s1 == 'kng':
 			position = '37.49796298370522, 127.02761094942744'
 			guname =  u'강남구'
 			return render_template('mapnlist.html', position = positioin, guname = guname)
-		elif s1 == u'kdg':
-			data = {'success':True, 'position':'37.53589682068908, 127.13235618124992', 'local': u'강동구'}
+		elif s1 == 'kdg':
+			position = '37.53589682068908, 127.13235618124992'
+			guname =  u'강동구'
 			return render_template('mapnlist.html', position = positioin, guname = guname)
-		elif s1 == u'jrg':
-			data = {'success':True, 'position':'37.57042061397492, 126.99213459583619', 'local': u'종로구'}
+		elif s1 == 'jrg':
+			position = '37.57042061397492, 126.99213459583619'
+			guname =  u'종로구'
 			return render_template('mapnlist.html', position = positioin, guname = guname)
-		return render_template('mapnlist.html', location = s1)
-	return render_template('mapnlist.html', location = s1)
+		return render_template('mapnlist.html')
+	return render_template('mapnlist.html')
 
 @app.route('/academy')
 def mapnlist():
