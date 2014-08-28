@@ -42,7 +42,7 @@ def search():
 	if request.method == 'GET':
 		session['s1'] = s1
 		session['s2'] = s2
-		return redirect('mapnlist')
+		return redirect('mapnlist', session1_check = session['s1'], session2_check = session['s2'])
 	else:
 		return render_template('main.html')
 
