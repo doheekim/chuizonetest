@@ -70,6 +70,14 @@ def create():
 
 			db.session.add(academy)
 			db.session.commit()
-			return redirect(url_for('main'))
+			# Have to Make line 74, "id"
+			return redirect(url_for('academy_detail', id=id))
 		return render_template('create.html', form=form)
 	return render_template('create.html', form=form)
+
+
+@app.route('/academy/detail/<int:id>', methods=['GET'])
+def academy_detail(id):
+	academy = Academy.query.get(id)
+
+	return render_template('academy_test.html', academy=academy)
