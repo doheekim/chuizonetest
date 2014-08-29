@@ -12,12 +12,13 @@ sys.setdefaultencoding('UTF8')
 @app.route('/')
 @app.route('/main')
 def main():
-
     return render_template('main.html')
+
 
 @app.route('/mapnlist', methods=['GET', 'POST'])
 def mapnlist():
 	return render_template('mapnlist.html')
+
 
 @app.route('/mapdata', methods=['GET', 'POST'])
 def mapdata():
@@ -37,11 +38,13 @@ def mapdata():
 		return jsonify(data)
 	return jsonify(data)
 
+
 @app.route('/academy')
 def academy():
 	return render_template('academy.html')
 
-@app.route('/create', methods=['GET', 'POST'])
+
+@app.route('/academy/create', methods=['GET', 'POST'])
 def create():
 	form=AcademyForm()
 	if request.method == 'GET':
