@@ -45,7 +45,7 @@ def academy():
 
 
 @app.route('/academy/create', methods=['GET', 'POST'])
-def create():
+def academy_create():
 	form=AcademyForm()
 	if request.method == 'GET':
 		return render_template('create.html', form=form)
@@ -81,3 +81,19 @@ def academy_detail(id):
 	academy = Academy.query.get(id)
 
 	return render_template('academy_test.html', academy=academy)
+
+
+@app.route('/academy/update/<int:id>', methods=['GET', 'POST'])
+def academy_update():
+	academy = Academy.query.get(id)
+	form = AcademyForm(request.form, obj=academy)
+
+	if request.method == 'GET':
+		return render_template('update.html', form=form)
+
+	elif request.method == 'POST':
+		if form.validate_on_submit():
+			form.populate_obj(academy)
+			db.session.commit()
+			return redirect(url_for('academy_detail', id=id))
+		return render_template('update.html', form=form)
