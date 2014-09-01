@@ -7,15 +7,13 @@
 # using cloud.google.com/console use the "project id" for your application
 # id.
 application: chuizonebeta
-version: 1
+version: 2
 runtime: python27
 api_version: 1
 threadsafe: yes
 
 # Handlers define how to route requests to your application.
 handlers:
-- url: /static
-  static_dir: static
 
 # App Engine serves and caches static files contained in the listed directories
 # (and subdirectories). Uncomment and set the directory as needed.

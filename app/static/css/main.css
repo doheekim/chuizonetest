@@ -7,40 +7,40 @@
 	word-spacing: -1px;
 }
 
-img {
+
+body { 
+	background: url('http://i.imgur.com/dZYCcCP.jpg') no-repeat center center fixed; 
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+
+
+html {
+	height: 100%;
 	width: 100%;
-	height: auto;
-}
-
-.nav {
-	position: absolute;
-	margin-left: 75%;
-	margin-top: 1%;
-}
-
-.nav li {
-	display: inline;
-	font-size: 17px;
-	color: #ffffff;
 }
 
 
 #searcher_1 {
 	width: 20%;
 	position: absolute;
-	margin-top: -15%;
-	margin-left: 25%;
+	top: 67%;
+	left: 25%;
 }
+
 
 #searcher_2 {
 	width: 20%;
 	position: absolute;
-	margin-top: -15%;
-	margin-left: 46%;
+	top: 67%;
+	left: 46%;
 }
+
 
 #button {
 	position: absolute;
-	margin-top: -15%;
-	margin-left: 67%;
+	top: 67%;
+	left: 67%;
 }
