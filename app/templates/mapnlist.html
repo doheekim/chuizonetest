@@ -4,15 +4,39 @@
 	<meta charset="UTF-8">
 	<title>List Page</title>
 	<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
-	<script src="http://code.jquery.com/ui/1.11.0/jquery-ui.js"></script>
+ 	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
 	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 	<style type="text/css"></style>
 	<meta name="viewport" content="initial-scale=1.0,user-scalable=no">
-	<script type="text/javascript" src="static/js/mapnlist.js"></script>
+	<script src="static/js/jquery.cookie.js"></script>
 	<link rel="stylesheet" type="text/css" href="static/css/mapnlist.css"/>	
 	<script type="text/javascript" src="http://apis.daum.net/maps/maps3.js?apikey=2044740d5825efd04511818f6489e32cbd0b5e71"></script>
+	<script type="text/javascript">
+		window.onload = function() {
+		var gu_latlng = $.cookie("gu_latlng");
+		var gu_name = $.cookie("gu_name");
+
+		var position = new daum.maps.LatLng(gu_latlng);
+
+		var map = new daum.maps.Map(document.getElementById('map'), {
+			center: position,
+			level: 4,
+			mapTypeId: daum.maps.MapTypeId.HYBRID
+		});
+
+		var marker = new daum.maps.Marker({
+			position: position
+		});
+		marker.setMap(map);
+
+		var infowindow = new daum.maps.InfoWindow({
+			content: gu_name + '취미학원 표시'
+		});
+		infowindow.open(map, marker);
+	};
+	</script>	
 </head>
 <body>
 	<!-- navigator start -->
@@ -22,8 +46,13 @@
 				<div class="col-md-3">
 					<p>CHUIZONE</p>
 				</div>
-				<div class="col-md-3">
-					
+				<div class="col-md-9">
+					{% if data %}
+						{{data}}
+					{% endif %}
+					{% if response %}
+						{{response}}
+					{% endif %}
 				</div>
 			</div>
 		</div>

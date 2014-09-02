@@ -4,7 +4,7 @@
 	<meta charset="UTF-8">
 	<title>Main Page</title>
 	<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
-	<script src="http://code.jquery.com/ui/1.11.0/jquery-ui.js"></script>
+ 	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
 	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
@@ -21,7 +21,7 @@
 
 
 	<!-- searcher start -->
-	<form role="form" method="GET" action="{{url_for('mapnlist')}}">
+	<form role="form" method="GET" action="{{url_for('mapdata')}}">
 		<select class="form-control" name="searcher_1" id="searcher_1">
 			<option value="all">지역을 선택하세요</option>
 			<option value="all">전체</option>
