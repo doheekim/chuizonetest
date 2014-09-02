@@ -82,7 +82,7 @@ def academy_create():
 			db.session.add(academy)
 			db.session.commit()
 
-			# How to define line 74, id
+			# How to define line 74, id(int error)
 			return redirect(url_for('academy_detail', id=id))
 		return render_template('create.html', form=form)
 	return render_template('create.html', form=form)
