@@ -1,13 +1,13 @@
 #-*-coding:utf-8-*-
-
-from flask import render_template, request, redirect, url_for, Flask, session, jsonify
-from app import app, db
-from app.forms import AcademyForm
-from app.models import Academy
 import sys
 reload(sys)
 sys.setdefaultencoding('UTF8')
 
+from flask import render_template, request, redirect, url_for, Flask, session, jsonify, make_response, request
+from app import app, db
+from app.forms import AcademyForm
+from app.models import Academy
+import Cookie
 
 @app.route('/')
 @app.route('/main')
@@ -23,20 +23,27 @@ def mapdata():
 	if request.method == 'GET':
 		s1 = request.args.get('searcher_1')
 		s2 = request.args.get('searcher_2')
-		data = {'success':True, 'gu_latlng': '37.575752724709574, 126.97686563462929', 'gu_name': u'왜 안되??'}
+		resp = make_response(render_template('mapnlist.html'))
+		resp.set_cookie("gu_latlng",value='37.49796298370522, 127.02761094942744')
+		resp.set_cookie("gu_name",value=u'왜안되??')
+		data = {'gu_latlng': request.cookies.get("gu_latlng"), 'gu_name': request.cookies.get("gu_name")}
 		if s1 == 'kng':
-			# data = {'success':True, 'gu_latlng': '37.49796298370522, 127.02761094942744', 'gu_name': u'강남구'}
-			session['gu_latlng'] = '37.49796298370522, 127.02761094942744'
-			session['gu_name'] = u'강남구'
-			return render_template('mapnlist.html')
+			resp.set_cookie("gu_latlng",value='37.49796298370522, 127.02761094942744')
+			resp.set_cookie("gu_name",value=u'강남구')
+			data = {'gu_latlng': request.cookies.get("gu_latlng"), 'gu_name': request.cookies.get("gu_name")}
+			return render_template('mapnlist.html', data = data)
 		elif s1 == 'kdg':
-			data = {'success':True, 'gu_latlng': '37.53589682068908, 127.13235618124992', 'gu_name': u'강동구'}
-			return render_template('mapnlist.html')
+			resp.set_cookie("gu_latlng",value='37.53589682068908, 127.13235618124992')
+			resp.set_cookie("gu_name",value=u'강동구')
+			data = {'gu_latlng': request.cookies.get("gu_latlng"), 'gu_name': request.cookies.get("gu_name")}
+			return render_template('mapnlist.html', data = data)
 		elif s1 == 'jrg':
-			data = {'success':True, 'gu_latlng': '37.57042061397492, 126.99213459583619', 'gu_name': u'종로구'}			
-			return render_template('mapnlist.html')
-		return render_template('mapnlist.html')
-	return render_template('mapnlist.html')
+			resp.set_cookie("gu_latlng",value='37.57042061397492, 126.99213459583619')
+			resp.set_cookie("gu_name",value=u'종로구')
+			data = {'gu_latlng': request.cookies.get("gu_latlng"), 'gu_name': request.cookies.get("gu_name")}	
+			return render_template('mapnlist.html', data = data)
+		return render_template('mapnlist.html', data = data)
+	return render_template('mapnlist.html', data = data)
 
 
 @app.route('/academy')
