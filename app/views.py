@@ -19,32 +19,35 @@ def main():
 #     return render_template('mapnlist.html')
 
 @app.route('/mapdata', methods=['GET', 'POST'])
-def mapdata():
-	resp = make_response(render_template('mapnlist.html'))
-	resp.set_cookie("gu_latlng", value = '37.49796298370522, 127.02761094942744')
-	resp.set_cookie("gu_name", value = u'왜안되??')
-	data = {'gu_latlng': request.cookies.get("gu_latlng"), 'gu_name': request.cookies.get("gu_name")}
-	
-	if request.method == 'GET':
+def mapdata(response):
+	if request.method == 'GET':	
 		s1 = request.args.get('searcher_1')
 		s2 = request.args.get('searcher_2')
+		response = make_response(render_template('mapnlist.html'))
+		response.set_cookie("gu_latlng", value = '37.49796298370522, 127.02761094942744')
+		response.set_cookie("gu_name", value = u'success default')
+		gu_latlng = request.cookies.get("gu_latlng")
+		gu_name = request.cookies.get("gu_name")
+		data = {'gu_latlng': gu_latlng, 'gu_name': gu_name}
+		
 		if s1 == 'kng':
-			resp.set_cookie("gu_latlng",value='37.49796298370522, 127.02761094942744')
-			resp.set_cookie("gu_name",value=u'강남구')
+			# resp.set_cookie("gu_latlng",value='37.49796298370522, 127.02761094942744')
+			# resp.set_cookie("gu_name",value=u'강남구')
 			data = {'gu_latlng': request.cookies.get("gu_latlng"), 'gu_name': request.cookies.get("gu_name")}
 			return render_template('mapnlist.html', data = data)
 		elif s1 == 'kdg':
-			resp.set_cookie("gu_latlng",value='37.53589682068908, 127.13235618124992')
-			resp.set_cookie("gu_name",value=u'강동구')
-			data = {'gu_latlng': request.cookies.get("gu_latlng"), 'gu_name': request.cookies.get("gu_name")}
+			data = {'gu_latlng': 'success kdg', 'gu_name': 'success kdg'}
+			# resp.set_cookie("gu_latlng",value='37.53589682068908, 127.13235618124992')
+			# resp.set_cookie("gu_name",value=u'강동구')
+			# data = {'gu_latlng': request.cookies.get("gu_latlng"), 'gu_name': request.cookies.get("gu_name")}
 			return render_template('mapnlist.html', data = data)
 		elif s1 == 'jrg':
 			resp.set_cookie("gu_latlng",value='37.57042061397492, 126.99213459583619')
 			resp.set_cookie("gu_name",value=u'종로구')
 			data = {'gu_latlng': request.cookies.get("gu_latlng"), 'gu_name': request.cookies.get("gu_name")}	
 			return render_template('mapnlist.html', data = data)
-		return render_template('mapnlist.html', data = data)
-	return render_template('mapnlist.html', data = data)
+		return render_template('mapnlist.html', data = data, response = response)
+	return render_template('mapnlist.html', data = data, response = response)
 
 
 @app.route('/academy')
