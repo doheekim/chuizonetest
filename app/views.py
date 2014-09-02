@@ -14,19 +14,20 @@ import Cookie
 def main():
     return render_template('main.html')
 
-@app.route('/mapnlist')
-def mapnlist():
-    return render_template('mapnlist.html')
+# @app.route('/mapnlist')
+# def mapnlist():
+#     return render_template('mapnlist.html')
 
 @app.route('/mapdata', methods=['GET', 'POST'])
 def mapdata():
+	resp = make_response(render_template('mapnlist.html'))
+	resp.set_cookie("gu_latlng", value = '37.49796298370522, 127.02761094942744')
+	resp.set_cookie("gu_name", value = u'왜안되??')
+	data = {'gu_latlng': request.cookies.get("gu_latlng"), 'gu_name': request.cookies.get("gu_name")}
+	
 	if request.method == 'GET':
 		s1 = request.args.get('searcher_1')
 		s2 = request.args.get('searcher_2')
-		resp = make_response(render_template('mapnlist.html'))
-		resp.set_cookie("gu_latlng",value='37.49796298370522, 127.02761094942744')
-		resp.set_cookie("gu_name",value=u'왜안되??')
-		data = {'gu_latlng': request.cookies.get("gu_latlng"), 'gu_name': request.cookies.get("gu_name")}
 		if s1 == 'kng':
 			resp.set_cookie("gu_latlng",value='37.49796298370522, 127.02761094942744')
 			resp.set_cookie("gu_name",value=u'강남구')
