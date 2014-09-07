@@ -14,16 +14,15 @@
 	<link rel="stylesheet" type="text/css" href="static/css/mapnlist.css"/>	
 	<script type="text/javascript" src="http://apis.daum.net/maps/maps3.js?apikey=2044740d5825efd04511818f6489e32cbd0b5e71"></script>
 	<script type="text/javascript">
-		window.onload = function() {
-		var gu_latlng = $.cookie("gu_latlng");
-		var gu_name = $.cookie("gu_name");
-
-		var position = new daum.maps.LatLng(gu_latlng);
-
-		var map = new daum.maps.Map(document.getElementById('map'), {
+	
+	$(document).ready(function(){
+		
+		var position = new daum.maps.LatLng(37.547156,126.989575);
+		
+		var map = new daum.maps.Map(document.getElementById('map'), {			
 			center: position,
-			level: 4,
-			mapTypeId: daum.maps.MapTypeId.HYBRID
+			level: 8,
+			mapTypeId: daum.maps.MapTypeId.ROADMAP
 		});
 
 		var marker = new daum.maps.Marker({
@@ -32,10 +31,37 @@
 		marker.setMap(map);
 
 		var infowindow = new daum.maps.InfoWindow({
-			content: gu_name + '취미학원 표시'
+			content: "지역을 선택하세요"
 		});
-		infowindow.open(map, marker);
-	};
+			infowindow.open(map, marker);		
+	
+		$("#searcher_1").change(function() {
+			// alert($(this).val());
+			var gu_latlng = $(this).val().split(",");
+			var lat = parseFloat(gu_latlng[0]);
+			var lng = parseFloat(gu_latlng[1]);
+			var gu_name = $(this).children("option:selected").text();
+
+			var position = new daum.maps.LatLng(lat, lng);
+		
+			var map = new daum.maps.Map(document.getElementById('map'), {			
+				center: position,
+				level: 4,
+				mapTypeId: daum.maps.MapTypeId.ROADMAP
+			});
+
+			var marker = new daum.maps.Marker({
+				position: position
+			});
+			marker.setMap(map);
+
+			var infowindow = new daum.maps.InfoWindow({
+				content: gu_name
+			});
+			infowindow.open(map, marker);
+		});
+	});	
+
 	</script>	
 </head>
 <body>
@@ -73,36 +99,36 @@
 					<div class="col-md-3">
 						<p>지역</p>
 					</div>
-					<form role="form" method="GET" action="{{url_for('mapdata')}}">
+					<form role="form" method="GET" action="{{url_for('mapnlist')}}">
 						<div class="col-md-9">				
 							<select class="form-control" name="searcher_1" id="searcher_1">
-								<option value="all">지역을 선택하세요</option>
-								<option value="all">전체</option>
-								<option value="kng">강남구</option>
-								<option value="kdg">강동구</option>
-								<option value="kbg">강북구</option>
-								<option value="ksg">강서구</option>
-								<option value="kag">관악구</option>
-								<option value="kjg">광진구</option>
-								<option value="krg">구로구</option>
-								<option value="kcg">금천구</option>
-								<option value="nwg">노원구</option>
-								<option value="dbg">도봉구</option>
-								<option value="ddmg">동대문구</option>
-								<option value="djg">동작구</option>
-								<option value="mpg">마포구</option>
-								<option value="sdmg">서대문구</option>
-								<option value="scg">서초구</option>
-								<option value="sdg">성동구</option>
-								<option value="sbg">성북구</option>
-								<option value="spg">송파구</option>
-								<option value="ycg">양천구</option>
-								<option value="ydpg">영등포구</option>
-								<option value="ysg">용산구</option>
-								<option value="epg">은평구</option>
-								<option value="jrg">종로구</option>
-								<option value="jg">중구</option>
-								<option value="jlg">중랑구</option>
+								<option name="all" value="37.497962,127.027610">지역을 선택하세요</option>
+								<option name="all" value="37.497962,127.027610">전체</option>
+								<option name="kng" value="37.497962,127.027610">강남구(강남역)</option>
+								<option name="kdg" value="37.535896,127.132356">강동구(강동역)</option>
+								<option name="kbg" value="37.626243,127.026108">강북구(미아역)</option>
+								<option name="ksg" value="37.548253,126.863421">강서구(강서구청)</option>
+								<option name="kag" value="37.481212,126.952903">관악구(서울대입구역)</option>
+								<option name="kjg" value="37.536433,127.095136">광진구(구의역)</option>
+								<option name="krg" value="37.524217,126.867764">구로구(구로역)</option>
+								<option name="kcg" value="37.503666,126.901231">금천구(시흥사거리)</option>
+								<option name="nwg" value="37.639046,126.935875">노원구(노원역)</option>
+								<option name="dbg" value="37.648646,127.035426">도봉구(쌍문역)</option>
+								<option name="ddmg" value="37.564218,127.007174">동대문구(역사문화공원역)</option>
+								<option name="djg" value="37.513587,126.940881">동작구(노량진역)</option>
+								<option name="mpg" value="37.559363,126.916297">마포구(홍대입구역)</option>
+								<option name="sdmg" value="37.568611,126.916934">서대문구(서대문구청)</option>
+								<option name="scg" value="37.486627,127.012713">서초구(교대역)</option>
+								<option name="sdg" value="37.583546,127.009193">성동구(왕십리역)</option>
+								<option name="sbg" value="37.592753,127.016468">성북구(성신여대)</option>
+								<option name="spg" value="37.513299,127.100130">송파구(잠실역)</option>
+								<option name="ycg" value="37.536682,127.089185">양천구(목동오거리)</option>
+								<option name="ydpg" value="37.524217,126.867764">영등포구(영등포역)</option>
+								<option name="ysg" value="37.535637,127.044030">용산구(용산역)</option>
+								<option name="epg" value="37.610953,126.929535">은평구(불광역)</option>
+								<option name="jrg" value="37.570420,126.992134">종로구(종로3가)</option>
+								<option name="jg" value="37.565877,126.984589">중구(을지로입구역)</option>
+								<option name="jlg" value="37.596383,127.085549">중랑구(상봉역)</option>
 							</select>
 						</div>
 					</div>
