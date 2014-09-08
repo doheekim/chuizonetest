@@ -8,7 +8,28 @@
 	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
 	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-	<style type="text/css"></style>
+	<style type="text/css">
+	.overlaybox {position:relative;width:360px;height:350px;background:url('http://dna.daum.net/include/apis/maps/examples/customoverlay/box_movie.png') no-repeat;padding:15px 10px;}
+	.overlaybox div, ul {overflow:hidden;margin:0;padding:0;}
+	.overlaybox li {list-style: none;}
+	.overlaybox .boxtitle {color:#fff;font-size:16px;font-weight:bold;background: url('http://dna.daum.net/include/apis/maps/examples/customoverlay/arrow_white.png') no-repeat right 120px center;margin-bottom:8px;}
+	.overlaybox .first {position:relative;width:247px;height:136px;background: url('http://i.imgur.com/7dh25Ef.jpg') no-repeat;margin-bottom:8px;}
+	.first .text {color:#fff;font-weight:bold;}
+	.first .triangle {position:absolute;width:48px;height:48px;top:0;left:0;background: url('http://dna.daum.net/include/apis/maps/examples/customoverlay/triangle.png') no-repeat; padding:6px;font-size:18px;}
+	.first .academytitle {position:absolute;width:100%;bottom:0;background:rgba(0,0,0,0.4);padding:7px 15px;font-size:14px;}
+	.overlaybox ul {width:247px;}
+	.overlaybox li {position:relative;margin-bottom:2px;background:#2b2d36;padding:5px 10px;color:#aaabaf;line-height: 1;}
+	.overlaybox li span {display:inline-block;}
+	.overlaybox li .number {font-size:16px;font-weight:bold;}
+	.overlaybox li .title {font-size:13px;}
+	.overlaybox ul .arrow {position:absolute;margin-top:8px;right:25px;width:5px;height:3px;background:url('http://dna.daum.net/include/apis/maps/examples/customoverlay/updown.png') no-repeat;} 
+	.overlaybox li .up {background-position:0 -40px;}
+	.overlaybox li .down {background-position:0 -60px;}
+	.overlaybox li .count {position:absolute;margin-top:5px;right:15px;font-size:10px;}
+	.overlaybox li:hover {color:#fff;background:#d24545;}
+	.overlaybox li:hover .up {background-position:0 0px;}
+	.overlaybox li:hover .down {background-position:0 -20px;}
+	</style>
 	<meta name="viewport" content="initial-scale=1.0,user-scalable=no">
 	<script src="static/js/jquery.cookie.js"></script>
 	<link rel="stylesheet" type="text/css" href="static/css/mapnlist.css"/>	
@@ -17,7 +38,7 @@
 	
 	$(document).ready(function(){
 		
-		var position = new daum.maps.LatLng(37.547156,126.989575);
+		var position = new daum.maps.LatLng(37.572950635570876,126.9768891413955);
 		
 		var map = new daum.maps.Map(document.getElementById('map'), {			
 			center: position,
@@ -25,15 +46,58 @@
 			mapTypeId: daum.maps.MapTypeId.ROADMAP
 		});
 
-		var marker = new daum.maps.Marker({
-			position: position
-		});
-		marker.setMap(map);
+		var content = '<div class="overlaybox">' +
+		'    <div class="boxtitle">추천 학원 정보</div>' +
+		'    <div class="first">' +
+		'        <div class="triangle text">1</div>' +
+		'        <div class="academytitle text">LHOOQ</div>' +
+		'    </div>' +
+		'    <ul>' +
+		'        <li class="up">' +
+		'            <span class="number">2</span>' +
+		'            <span class="title">Sarah garden</span>' +
+		'            <span class="arrow up"></span>' +
+		'            <span class="count">2</span>' +
+		'        </li>' +
+		'        <li>' +
+		'            <span class="number">3</span>' +
+		'            <span class="title">Leather Craft</span>' +
+		'            <span class="arrow up"></span>' +
+		'            <span class="count">6</span>' +
+		'        </li>' +
+		'        <li>' +
+		'            <span class="number">4</span>' +
+		'            <span class="title">My Kitchen</span>' +
+		'            <span class="arrow up"></span>' +
+		'            <span class="count">3</span>' +
+		'        </li>' +
+		'        <li>' +
+		'            <span class="number">5</span>' +
+		'            <span class="title">Chuizone Piano</span>' +
+		'            <span class="arrow down"></span>' +
+		'            <span class="count">1</span>' +
+		'        </li>' +
+		'    </ul>' +
+		'</div>';
 
-		var infowindow = new daum.maps.InfoWindow({
-			content: "지역을 선택하세요"
+		var customOverlay = new daum.maps.CustomOverlay({
+			position: position,
+			content: content,
+			xAnchor: 1,
+			yAnchor: 2
 		});
-			infowindow.open(map, marker);		
+
+		customOverlay.setMap(map);
+
+		// var marker = new daum.maps.Marker({
+		// 	position: position
+		// });
+		// marker.setMap(map);
+
+		// var infowindow = new daum.maps.InfoWindow({
+		// 	content: "지역을 선택하세요"
+		// });
+		// 	infowindow.open(map, marker);		
 	
 		$("#searcher_1").change(function() {
 			// alert($(this).val());
