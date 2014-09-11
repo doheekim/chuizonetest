@@ -80,8 +80,7 @@ def academy_create():
 			db.session.add(academy)
 			db.session.commit()
 
-			# How to define line 74, id(int error)
-			return redirect(url_for('academy_detail', id=id))
+			return render_template('main.html')
 		return render_template('create.html', form=form)
 	return render_template('create.html', form=form)
 
@@ -93,17 +92,17 @@ def academy_detail(id):
 	return render_template('academy_test.html', academy=academy)
 
 
-@app.route('/academy/update/<int:id>', methods=['GET', 'POST'])
-def academy_update():
-	academy = Academy.query.get(id)
-	form = AcademyForm(request.form, obj=academy)
+# @app.route('/academy/update/<int:id>', methods=['GET', 'POST'])
+# def academy_update():
+# 	academy = Academy.query.get(id)
+# 	form = AcademyForm(request.form, obj=academy)
 
-	if request.method == 'GET':
-		return render_template('update.html', form=form)
+# 	if request.method == 'GET':
+# 		return render_template('update.html', form=form)
 
-	elif request.method == 'POST':
-		if form.validate_on_submit():
-			form.populate_obj(academy)
-			db.session.commit()
-			return redirect(url_for('academy_detail', id=id))
-		return render_template('update.html', form=form)
+# 	elif request.method == 'POST':
+# 		if form.validate_on_submit():
+# 			form.populate_obj(academy)
+# 			db.session.commit()
+# 			return redirect(url_for('academy_detail', id=id))
+# 		return render_template('update.html', form=form)
