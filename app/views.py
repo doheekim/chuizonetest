@@ -74,7 +74,12 @@ def academy_create():
 				homepage=form.homepage.data,
 				location=form.location.data,
 				category=form.category.data,
-				academy_latlng=form.academy_latlng.data
+				academy_latlng=form.academy_latlng.data,
+				image_1=form.image_1.data,
+				image_2=form.image_2.data,
+				image_3=form.image_3.data,
+				image_4=form.image_4.data,
+				image_5=form.image_5.data
 				)
 
 			db.session.add(academy)

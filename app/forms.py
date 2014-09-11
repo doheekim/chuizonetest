@@ -79,3 +79,33 @@ class AcademyForm(Form):
         [validators.data_required(u'위도와 경도를 입력하시기 바랍니다.')],
         description={'placeholder': u'위도와 경도를 입력해주세요.'}
         )
+    image_1 = StringField(
+        u'이미지1',
+        [validators.data_required(u'이미지 링크를 입력하시기 바랍니다.')],
+        description={'placeholder': u'이미지 링크를 입력해주세요.'}
+        )
+    image_2 = StringField(
+        u'이미지2',
+        [validators.data_required(u'이미지 링크를 입력하시기 바랍니다.')],
+        description={'placeholder': u'이미지 링크를 입력해주세요.'}
+        )
+    image_3 = StringField(
+        u'이미지3',
+        [validators.data_required(u'이미지 링크를 입력하시기 바랍니다.')],
+        description={'placeholder': u'이미지 링크를 입력해주세요.'}
+        )
+    image_4 = StringField(
+        u'이미지4',
+        [validators.data_required(u'이미지 링크를 입력하시기 바랍니다.')],
+        description={'placeholder': u'이미지 링크를 입력해주세요.'}
+        )
+    image_5 = StringField(
+        u'이미지5',
+        [validators.data_required(u'이미지 링크를 입력하시기 바랍니다.')],
+        description={'placeholder': u'이미지 링크를 입력해주세요.'}
+        )
+    teacher_image = StringField(
+        u'선생님사진',
+        [validators.data_required(u'선생님 사진 링크를 입력하시기 바랍니다.')],
+        description={'placeholder': u'선생님 사진 링크를 입력해주세요.'}
+        )
