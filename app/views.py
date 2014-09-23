@@ -25,7 +25,7 @@ def mapnlist():
 
 @app.route('/mapdata')
 def mapdata():
-	mapdata = Academy.query.filter_by(location='kng').first()
+	mapdata = Academy.query.filter(Academy.location == 'kng')
 	return jsonify(mapdata)
 
 

@@ -73,11 +73,11 @@
 			var map = new daum.maps.Map(mapContainer, mapOption);
 
 			$.getJSON('/mapdata', function(mapdata) {
-				var items = [];
-				$.each(mapdata, function(key, val) {
-					items.push( "<li id='" + key + "'>" + val + "</li>" );
-				});
-				console.log("Success and JSON Data: " + items);
+				var kngmap = parseFloat(mapdata[0]);
+				// $.each(mapdata, function(key, val) {
+				// 	items.push( "<li id='" + key + "'>" + val + "</li>" );
+				// });
+				alert("Success and JSON Data: " + kngmap);
 			});
 
 			
