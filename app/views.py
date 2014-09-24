@@ -97,6 +97,12 @@ def academy_detail(id):
 	return render_template('academy_test.html', academy=academy)
 
 
+@app.route('/academy_test_2')
+def academy_test_2():
+	
+	return render_template('academy_test_2.html')
+
+
 # @app.route('/academy/update/<int:id>', methods=['GET', 'POST'])
 # def academy_update():
 # 	academy = Academy.query.get(id)
