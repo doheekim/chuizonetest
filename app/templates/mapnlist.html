@@ -72,13 +72,26 @@
 			
 			var map = new daum.maps.Map(mapContainer, mapOption);
 
-			$.getJSON('/mapdata', function(mapdata) {
-				var kngmap = parseFloat(mapdata[0]);
-				// $.each(mapdata, function(key, val) {
-				// 	items.push( "<li id='" + key + "'>" + val + "</li>" );
-				// });
-				alert("Success and JSON Data: " + kngmap);
-			});
+			$.ajax({
+				url : "/mapdata",
+				dataType : "json",
+				data : {
+					location : location
+				},
+				success : function(resp){
+					current_row += 2;
+					academy_list = resp.data;
+					for(var i in academy_list){
+						academy = academy_list[i];
+						string = "<h1>"+ academy.id 
+						+"</h1><h6>"+ academy.latlng +"</h6>";
+						$("#academy_list").append(string);
+				}
+			},
+			error : function(resp){
+				console.log('invalid response!. Server error!');
+			}	
+			})
 
 			
 			var positions = [
@@ -295,8 +308,8 @@
 							</div>
 						</center>
 					</div>	
-					<div class="col-md-12" id="mapdata">
-					
+					<div class="col-md-6" id="academy_list">
+
 					</div>
 				</div>
 			</div>

@@ -25,9 +25,23 @@ def mapnlist():
 
 @app.route('/mapdata')
 def mapdata():
-	mapdata = Academy.query.filter(Academy.location == 'kng')
-	return jsonify(mapdata)
+	# mapdata = Academy.query.filter(Academy.location == 'kng').first()
+	location = str(request.args.get('searcher_1'))
+	mapdata = db.session.query(Academy).filter(Academy.academy_latlng == "kng").order_by(desc(Academy.id))
 
+	resp = {}
+	resp["data"] = []
+	temp = {}
+
+	for academy in mapdata:
+		temp['id'] = academy.id
+		temp['name'] = academy.academy_name
+		temp['latlang'] = academy.academy_latlng
+
+		resp["data"].append(temp)
+		temp = {}	
+
+	return jsonify(resp)
 
 @app.route('/academy')
 def academy():
