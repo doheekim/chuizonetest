@@ -1,19 +1,19 @@
 h3,
 h4,
 h5 {
-	color: #0088cc;
+	color: #ff9f4a;
 }
 
 a {
-	color: #0088cc;
+	color: #ff9f4a;
 }
 
 a:hover {
-	color: #0099e6;
+	color: #ff9f4a;
 }
 
 a:active {
-	color: #0077b3;
+	color: #ff9f4a;
 }
 
 .alternative-font {
@@ -174,17 +174,17 @@ section.page-top.custom-product {
 
 .tabs ul.nav-tabs a,
 .tabs ul.nav-tabs a:hover {
-	color: #0088cc;
+	color: #ff9f4a;
 }
 
 .tabs ul.nav-tabs a:hover,
 .tabs ul.nav-tabs a:focus {
-	border-top-color: #0088cc;
+	border-top-color: #ff9f4a;
 }
 
 .tabs ul.nav-tabs li.active a {
-	border-top-color: #0088cc;
-	color: #0088cc;
+	border-top-color: #ff9f4a;
+	color: #ff9f4a;
 }
 
 .tabs ul.nav-tabs.nav-justified a:hover,
