@@ -2,205 +2,39 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>List Page</title>
-	<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
- 	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-	<style type="text/css">
-	.overlaybox {position:relative;width:360px;height:350px;background:url('http://dna.daum.net/include/apis/maps/examples/customoverlay/box_movie.png') no-repeat;padding:15px 10px;}
-	.overlaybox div, ul {overflow:hidden;margin:0;padding:0;}
-	.overlaybox li {list-style: none;}
-	.overlaybox .boxtitle {color:#fff;font-size:16px;font-weight:bold;background: url('http://dna.daum.net/include/apis/maps/examples/customoverlay/arrow_white.png') no-repeat right 120px center;margin-bottom:8px;}
-	.overlaybox .first {position:relative;width:247px;height:136px;background: url('http://i.imgur.com/tFnCAVu.jpg') no-repeat;margin-bottom:8px;}
-	.first .text {color:#fff;font-weight:bold;}
-	.first .triangle {position:absolute;width:48px;height:48px;top:0;left:0;background: url('http://dna.daum.net/include/apis/maps/examples/customoverlay/triangle.png') no-repeat; padding:6px;font-size:18px;}
-	.first .academytitle {position:absolute;width:100%;bottom:0;background:rgba(0,0,0,0.4);padding:7px 15px;font-size:14px;}
-	.overlaybox ul {width:247px;}
-	.overlaybox li {position:relative;margin-bottom:2px;background:#2b2d36;padding:5px 10px;color:#aaabaf;line-height: 1;}
-	.overlaybox li span {display:inline-block;}
-	.overlaybox li .number {font-size:16px;font-weight:bold;}
-	.overlaybox li .title {font-size:13px;}
-	.overlaybox ul .arrow {position:absolute;margin-top:8px;right:25px;width:5px;height:3px;background:url('http://dna.daum.net/include/apis/maps/examples/customoverlay/updown.png') no-repeat;} 
-	.overlaybox li .up {background-position:0 -40px;}
-	.overlaybox li .down {background-position:0 -60px;}
-	.overlaybox li .count {position:absolute;margin-top:5px;right:15px;font-size:10px;}
-	.overlaybox li:hover {color:#fff;background:#d24545;}
-	.overlaybox li:hover .up {background-position:0 0px;}
-	.overlaybox li:hover .down {background-position:0 -20px;}
-	</style>
-	<meta name="viewport" content="initial-scale=1.0,user-scalable=no">
-	<script src="static/js/jquery.cookie.js"></script>
-	<link rel="stylesheet" type="text/css" href="static/css/mapnlist2.css"/>	
-	<script type="text/javascript" src="http://apis.daum.net/maps/maps3.js?apikey=2044740d5825efd04511818f6489e32cbd0b5e71"></script>
-	<script type="text/javascript">
-	
-	$(document).ready(function(){
-		
-		var position = new daum.maps.LatLng(37.572950635570876,126.9768891413955);
-		
-		var map = new daum.maps.Map(document.getElementById('map'), {			
-			center: position,
-			level: 8,
-			mapTypeId: daum.maps.MapTypeId.ROADMAP
-		});
-
-		var marker = new daum.maps.Marker({
-			position: position
-		});
-		marker.setMap(map);
-
-		var infowindow = new daum.maps.InfoWindow({
-			content: "지역을 선택하세요"
-		});
-			infowindow.open(map, marker);		
-	
-		$("#searcher_1").change(function() {
-			var gu_latlng = $(this).val().split(",");
-			var lat = parseFloat(gu_latlng[0]);
-			var lng = parseFloat(gu_latlng[1]);
-			var gu_name = $(this).children("option:selected").text();
-
-			var position = new daum.maps.LatLng(lat, lng);
-
-			var mapContainer = document.getElementById('map'), // 지도를 표시할 div  
-				mapOption = {
-					center: position, // 지도의 중심좌표
-					level: 4 // 지도의 확대 레벨
-				};
-			
-			var map = new daum.maps.Map(mapContainer, mapOption);
-
-			$.getJSON('/mapdata', function(mapdata) {
-				var kngmap = parseFloat(mapdata[0]);
-				// $.each(mapdata, function(key, val) {
-				// 	items.push( "<li id='" + key + "'>" + val + "</li>" );
-				// });
-				alert("Success and JSON Data: " + kngmap);
-			});
-
-			
-			var positions = [
-				{
-					title: 'LHOOQ', 
-					latlng: new daum.maps.LatLng(37.500410,127.027005)
-				},
-				{
-			    	title: 'Sarah Garden', 
-			    	latlng: new daum.maps.LatLng(37.499022,127.029561)
-				},
-				{
-			    	title: 'Leather Craft', 
-			    	latlng: new daum.maps.LatLng(37.496860,127.025704)
-				},
-				{
-			    	title: 'My Kitchen',
-			    	latlng: new daum.maps.LatLng(37.496327,127.030125)
-				},
-				{
-					title: 'Your Piano',
-					latlng: new daum.maps.LatLng(37.498581,127.024800)
-				}
-			];
-
-			var imageSrc = "http://i1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png";
-			
-			for (var i = 0; i < positions.length; i ++) {
-
-				// 마커 이미지의 이미지 크기 입니다
-				var imageSize = new daum.maps.Size(24, 35); 
-
-				// 마커 이미지를 생성합니다    
-				var markerImage = new daum.maps.MarkerImage(imageSrc, imageSize); 
-
-				// 마커를 생성합니다
-				var marker = new daum.maps.Marker({
-					map: map, // 마커를 표시할 지도
-					position: positions[i].latlng, // 마커를 표시할 위치
-					// title : positions[i].title, // 마커의 타이틀, 마커에 마우스를 올리면 타이틀이 표시됩니다
-					image : markerImage // 마커 이미지 
-				});
-
-				var infowindow = new daum.maps.InfoWindow({
-					content: positions[i].title
-				});
-				infowindow.open(map, marker);
-			}			
-
-			var marker = new daum.maps.Marker({
-				position: position
-			});
-			marker.setMap(map);
-
-			var infowindow = new daum.maps.InfoWindow({
-				content: gu_name
-			});
-			infowindow.open(map, marker);
-
-			var content = '<div class="overlaybox">' +
-					'    <div class="boxtitle">추천 학원 정보</div>' +
-					'    <div class="first">' +
-					'        <div class="triangle text">1</div>' +
-					'        <div class="academytitle text">LHOOQ</div>' +
-					'    </div>' +
-					'    <ul>' +
-					'        <li class="up">' +
-					'            <span class="number">2</span>' +
-					'            <span class="title">Sarah garden</span>' +
-					'            <span class="arrow up"></span>' +
-					'            <span class="count">2</span>' +
-					'        </li>' +
-					'        <li>' +
-					'            <span class="number">3</span>' +
-					'            <span class="title">Leather Craft</span>' +
-					'            <span class="arrow up"></span>' +
-					'            <span class="count">6</span>' +
-					'        </li>' +
-					'        <li>' +
-					'            <span class="number">4</span>' +
-					'            <span class="title">My Kitchen</span>' +
-					'            <span class="arrow up"></span>' +
-					'            <span class="count">3</span>' +
-					'        </li>' +
-					'        <li>' +
-					'            <span class="number">5</span>' +
-					'            <span class="title">Chuizone Piano</span>' +
-					'            <span class="arrow down"></span>' +
-					'            <span class="count">1</span>' +
-					'        </li>' +
-					'    </ul>' +
-					'</div>';
-
-			var customOverlay = new daum.maps.CustomOverlay({
-				position: position,
-				content: content,
-				xAnchor: -0.1,
-				yAnchor: 0
-			});
-
-			customOverlay.setMap(map);	
-		});
-	});	
-
-	</script>
-
+	<!-- HTML5 Metas -->
 	<meta name="keywords" content="HTML5 Template" />
 	<meta name="description" content="Porto - Responsive HTML5 Template">
 	<meta name="author" content="okler.net">
 
 	<!-- Mobile Metas -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+	<!-- CSS.JS. -->		
+	<title>List Page</title>
+	<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+ 	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+	
+	<!-- <meta name="viewport" content="initial-scale=1.0,user-scalable=no">
+	<script src="static/js/jquery.cookie.js"></script>-->
+ 	
+	<!-- daum map head -->
+	<script type="text/javascript" src="http://apis.daum.net/maps/maps3.js?apikey=2044740d5825efd04511818f6489e32cbd0b5e71"></script>			
+	<link rel="stylesheet" type="text/css" href="static/css/mapnlist.css"/>	
+	<style src="static/js/mapnlist.js"></style>
 
 	<!-- Web Fonts  -->
 	<link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800%7CShadows+Into+Light" rel="stylesheet" type="text/css">
 
 	<!-- Vendor CSS -->
-	<link rel="stylesheet" href="static/vendor/bootstrap/bootstrap.css">
+<!-- 	<link rel="stylesheet" href="static/vendor/bootstrap/bootstrap.css">
 	<link rel="stylesheet" href="static/vendor/fontawesome/css/font-awesome.css">
 	<link rel="stylesheet" href="static/vendor/owlcarousel/owl.carousel.css" media="screen">
 	<link rel="stylesheet" href="static/vendor/owlcarousel/owl.theme.css" media="screen">
-	<link rel="stylesheet" href="static/vendor/magnific-popup/magnific-popup.css" media="screen">
+	<link rel="stylesheet" href="static/vendor/magnific-popup/magnific-popup.css" media="screen"> -->
 
 	<!-- Theme CSS -->
 	<link rel="stylesheet" href="static/css/theme.css">
@@ -215,8 +49,8 @@
 	<!-- Theme Custom CSS -->
 	<!-- <link rel="stylesheet" href="static/css/custom.css"> -->
 
-	<!-- Head Libs -->
-	<script src="static/vendor/modernizr/modernizr.js"></script>
+	<!-- Head Libs 
+	<script src="static/vendor/modernizr/modernizr.js"></script>-->
 
 </head>
 <body>
@@ -303,6 +137,20 @@
 				<br />
 				<div class="row">
 					<ul class="portfolio-list sort-destination" data-sort-id="portfolio">
+						<li class="col-sm-6 col-xs-12 isotope-item websites">
+							<div class="portfolio-item img-thumbnail">
+								<a href="#" class="thumb-info">
+									<img alt="" class="img-responsive" src="static/img/lhooq_0.jpg">
+									<span class="thumb-info-title">
+										<span class="thumb-info-inner">LHOOQ</span>
+										<span class="thumb-info-type">Art</span>
+									</span>
+									<span class="thumb-info-action">
+										<span title="Universal" class="thumb-info-action-icon"><i class="fa fa-star"></i></span>
+									</span>
+								</a>
+							</div>
+						</li>
 						<li class="col-sm-6 col-xs-12 isotope-item websites">
 							<div class="portfolio-item img-thumbnail">
 								<a href="#" class="thumb-info">

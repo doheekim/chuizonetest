@@ -1,0 +1,193 @@
+@import url(http://fonts.googleapis.com/earlyaccess/nanumgothiccoding.css);
+@import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
+@import url(http://fonts.googleapis.com/earlyaccess/nanummyeongjo.css);
+
+* {
+	font-family: nanumgothiccoding, Arial;
+	letter-spacing: -1px;
+	word-spacing: -1px;
+}
+
+html {
+	height: 100%;
+	width: 100%;
+}
+
+/*nav start*/
+.nav {
+	background-color: #f1f1f1;
+	width: 100%;
+	height: 50px;
+	border-bottom: 1px solid #c8c8c8;
+}
+
+.nav p {
+	font-size: 25px;
+	font-weight: bold;
+	color: #ff6666;
+	padding-top: 7px;
+}
+/*nav end*/
+
+
+/*map start*/
+#map {
+	width: 100%;
+	height: auto;
+	border: 1px solid #c8c8c8;
+}
+/*map end*/
+
+
+/*searcher start*/
+.searcher {
+	padding: 7px 0px 10px 0px;
+}
+/*searcher end*/
+
+/*list start*/
+.academy_list {
+	width: 350px;
+	height: 280px;
+	padding: 15px 0px 35px 0px;
+}
+
+.academy_list img {
+	max-width: 100%;
+	max-height: 100%;
+	min-width: 100%;
+	min-height: 100%;
+}
+
+.academy_list p {
+	font-size: 15px;
+	font-weight: bold;
+	letter-spacing: 0px;
+	word-spacing: 0px;
+	background-color: #ff6666;
+	color: #ffffff;
+}
+/*list end*/
+
+/*지도위 학원 추천 overlay*/
+
+.overlaybox {
+	position:relative;
+	width:360px;
+	height:350px;
+	background:url('http://dna.daum.net/include/apis/maps/examples/customoverlay/box_movie.png') no-repeat;
+	padding:15px 10px;
+}
+
+.overlaybox div, ul {
+	overflow:hidden;
+	margin:0;
+	padding:0;
+}
+
+.overlaybox li {
+	list-style: none;
+}
+
+.overlaybox .boxtitle {
+	color:#fff;
+	font-size:16px;
+	font-weight:bold;
+	background: url('http://dna.daum.net/include/apis/maps/examples/customoverlay/arrow_white.png') no-repeat right 120px center;
+	margin-bottom:8px;
+}
+
+.overlaybox .first {
+	position:relative;
+	width:247px;height:136px;
+	background: url('http://i.imgur.com/tFnCAVu.jpg') no-repeat;
+	margin-bottom:8px;
+}
+
+.first .text {
+	color:#fff;
+	font-weight:bold;
+}
+
+.first .triangle {
+	position:absolute;
+	width:48px;
+	height:48px;
+	top:0;
+	left:0;
+	background: url('http://dna.daum.net/include/apis/maps/examples/customoverlay/triangle.png') no-repeat; 
+	padding:6px;
+	font-size:18px;
+}
+
+.first .academytitle {
+	position:absolute;
+	width:100%;
+	bottom:0;
+	background:rgba(0,0,0,0.4);
+	padding:7px 15px;
+	font-size:14px;
+}
+
+.overlaybox ul {
+	width:247px;
+}
+
+.overlaybox li {
+	position:relative;
+	margin-bottom:2px;
+	background:#2b2d36;
+	padding:5px 10px;
+	color:#aaabaf;
+	line-height: 1;
+}
+
+.overlaybox li span {
+	display:inline-block;
+}
+
+.overlaybox li .number {
+	font-size:16px;
+	font-weight:bold;
+}
+
+.overlaybox li .title {
+	font-size:13px;
+}
+
+.overlaybox ul .arrow {
+	position:absolute;
+	margin-top:8px;
+	right:25px;
+	width:5px;
+	height:3px;
+	background:url('http://dna.daum.net/include/apis/maps/examples/customoverlay/updown.png') no-repeat;
+}
+
+.overlaybox li .up {
+	background-position:0 -40px;
+}
+
+.overlaybox li .down {
+	background-position:0 -60px;
+}
+
+.overlaybox li .count {
+	position:absolute;
+	margin-top:5px;
+	right:15px;
+	font-size:10px;
+}
+
+.overlaybox li:hover {
+	color:#fff;
+	background:#d24545;
+}
+
+.overlaybox li:hover .up {
+	background-position:0 0px;
+}
+
+.overlaybox li:hover .down {
+	background-position:0 -20px;
+}
